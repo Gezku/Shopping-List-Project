@@ -24,6 +24,18 @@
 
 
 var selectButton = document.querySelector("button");
+var selelectCreateListBtn = document.getElementById("createListName");
+
+/*
+var selectli = document.getElementById("lista-uno");
+var selectli2= document.getElementById("lista-2");
+Experiment
+*/
+
+
+
+
+
 
 selectButton.addEventListener("click", function(){
     
@@ -46,17 +58,11 @@ selectButton.addEventListener("click", function(){
     var quantityInput = document.getElementById("itemQuantity").value;
     var quantityInputText = document.createTextNode(quantityInput + " ");
 
+    
    
 
 
-    /*
-    EXPERIMENT
-
-    I'm trying to put a checkbox inside the item list,so when I click it and check it, the text-decoration of the text changes to line-through.
-
-    
-    checkbox.setAttribute("type", "checkbox");
-    */
+ 
 
     createButton.appendChild(createTextBtn);                        // Append or insert the textnode in our Button
     createListItem.appendChild(convertText);                        // Append or insert the text node in our list
@@ -90,3 +96,36 @@ selectButton.addEventListener("click", function(){
 
 
 });
+
+
+
+selelectCreateListBtn.addEventListener("click",function(){
+    var newH2 = document.createElement("h2");
+    var newLi = document.createElement("li");
+    var newA = document.createElement("a");
+    var selectMenuList = document.getElementById("menu-list");
+    var inputListNameValue = document.getElementById("listName").value;
+    var convertListNameValue = document.createTextNode(inputListNameValue);
+     
+    newA.setAttribute("href", "#");
+    newA.setAttribute("class", "list-1");
+    newA.appendChild(convertListNameValue);
+    newH2.appendChild(newA);
+    newLi.appendChild(newH2);
+    
+    
+    
+    selectMenuList.appendChild(newLi);
+    newLi.style.cssFloat = "left";
+    
+
+});
+
+
+
+
+
+
+
+
+

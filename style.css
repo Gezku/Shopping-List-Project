@@ -22,3 +22,12 @@ input[type='checkbox'] {
     
 }
 
+
+#menu-list li{
+    float:left;
+}
+
+#menu-list li ul li{
+    float:none;
+}
+
