@@ -23,6 +23,13 @@ var selectButton = document.querySelector("button");
 
 selectButton.addEventListener("click", function(){
 
+    //General Variables
+
+    var newDate = new Date();                                               
+    var shortDate = newDate.toLocaleDateString();                                     
+
+    
+
     //Values
     
     var itemName = document.getElementById("itemName").value;               // Gets the value of the input element with the "itemName" ID
@@ -38,6 +45,8 @@ selectButton.addEventListener("click", function(){
     var checkbox = document.createElement("input");                         // Creates a checkbox
     var priceInputText = document.createTextNode(priceInput + " ");         // Gets the value from priceInput and converts it into a string or text.
     var quantityInputText = document.createTextNode(quantityInput + " ");   // Gets the value from quantityInput and converts it into a string or text.
+    var spanDate = document.createElement("span");                          // EXPERIMENT
+    var spanDateTextNode = document.createTextNode(shortDate);              // EXPERIMENT
 
     //Selections
 
@@ -58,11 +67,13 @@ selectButton.addEventListener("click", function(){
         alert("Insert quantity of items, please...")
     }else{
         // Append elements
-        
+
         createButton.appendChild(createTextBtn);                              // Append or insert the textnode in our Button
         createListItem.appendChild(convertText);                              // Append or insert the text node in our list
         createListItem.appendChild(priceInputText);                           // Append or insert the text node of priceInputText into the li
         createListItem.appendChild(quantityInputText);                        // Append or insert the text node of quantityInputText into the li
+        spanDate.appendChild(spanDateTextNode);                               // Append or insert the text node to the span element
+        createListItem.appendChild(spanDate);                                 //Append or insert the span element to the list element      
         createListItem.appendChild(createButton);                             // Append or insert the button in the li
         createListItem.appendChild(checkbox);                                 // Append or insert the checkbox in the li
         select_UL.appendChild(createListItem);                                // Insert or append the the list item inside the Ul that was created in the index file.
@@ -75,7 +86,7 @@ selectButton.addEventListener("click", function(){
 
     }
 
-    checkbox.addEventListener("click", function(){
+    checkbox.addEventListener("click", function(){                              //if the checkbox is clicked a line goes through the item name, price, item quantity.
         if (checkbox.checked == true){
             createListItem.style.textDecoration = "line-through";
         }else{
@@ -84,16 +95,9 @@ selectButton.addEventListener("click", function(){
     });
 
 
-    createButton.addEventListener("click", function(){              // It deletes an item from the list
+    createButton.addEventListener("click", function(){                           // It deletes an item from the list
         createListItem.parentNode.removeChild(createListItem);
     });
-    
-
-  
-
-
-
-
 
 
 });
