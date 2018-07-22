@@ -28,8 +28,6 @@ selectButton.addEventListener("click", function(){
     var newDate = new Date();                                               
     var shortDate = newDate.toLocaleDateString();                                     
 
-    
-
     //Values
     
     var itemName = document.getElementById("itemName").value;               // Gets the value of the input element with the "itemName" ID
@@ -39,7 +37,7 @@ selectButton.addEventListener("click", function(){
     //Creations
     
     var createListItem = document.createElement("li");                      // Creates an item list.
-    var convertText= document.createTextNode(itemName + "    ");            // Creates a string or text that we can insert in our item list.
+    var convertText= document.createTextNode(itemName);            // Creates a string or text that we can insert in our item list.
     var createButton = document.createElement("button");                    // Creates a button element.
     var createTextBtn = document.createTextNode("Remove");                  // Creates a string or text that we can insert in our button.
     var checkbox = document.createElement("input");                         // Creates a checkbox
@@ -47,6 +45,70 @@ selectButton.addEventListener("click", function(){
     var quantityInputText = document.createTextNode(quantityInput + " ");   // Gets the value from quantityInput and converts it into a string or text.
     var spanDate = document.createElement("span");                          // EXPERIMENT
     var spanDateTextNode = document.createTextNode(shortDate);              // EXPERIMENT
+
+
+    //Table experimentation creations
+
+    /* var tditemName  = document.createElement("td").innerHTML = convertText; */
+    var tditemName  = document.createElement("td");
+    var tdPrice = document.createElement("td");
+    var tdQuantity = document.createElement("td");
+    var tdRemoveButton = document.createElement("td");
+    var tdCheckBox = document.createElement("td");
+    var tdDate = document.createElement("td");
+    var trAll = document.createElement("tr");
+
+    // Table experimentation selection
+
+    var selectTable = document.getElementById("table");
+
+    // Table experimentation appending
+    
+    // Select the table  
+    selectTable.appendChild(trAll);
+    
+
+    // Appending Text Node to td elements
+    tditemName.appendChild(convertText);
+    tdPrice.appendChild(priceInputText);
+    tdQuantity.appendChild(quantityInputText);
+    tdDate.appendChild(spanDateTextNode);
+
+    createButton.appendChild(createTextBtn);
+    tdRemoveButton.appendChild(createButton);
+
+    checkbox.setAttribute("type", "checkbox"); 
+    tdCheckBox.appendChild(checkbox);
+    
+
+
+
+    //Appending td elements to tr elements
+    trAll.appendChild(tditemName);
+    trAll.appendChild(tdPrice);
+    trAll.appendChild(tdQuantity);
+    trAll.appendChild(tdDate);
+    trAll.appendChild(tdRemoveButton);
+    trAll.appendChild(checkbox);
+
+
+    createButton.addEventListener("click", function(){                           // EXPERIMENT
+        trAll.parentNode.removeChild(trAll);
+    });
+
+    checkbox.addEventListener("click", function(){                              //if the checkbox is clicked a line goes through the item name, price, item quantity.
+        if (checkbox.checked == true){
+            trAll.style.backgroundColor = "red";
+        }else{
+            trAll.style.backgroundColor = "green";
+        }
+    });
+
+
+
+
+
+    /*
 
     //Selections
 
@@ -99,7 +161,7 @@ selectButton.addEventListener("click", function(){
         createListItem.parentNode.removeChild(createListItem);
     });
 
-
+    */
 });
 
 

@@ -1,18 +1,38 @@
 .whole-list{
     border: black solid 1.2px;
-
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
    
 }
 
 .container{
     position: relative;
-    width: 400px;
+    width: 450px;
     height: 400px;
     margin: auto;
 }
 
 .input-div{
-    margin-top: 2%;
-    margin-left: 15%;
+    text-align: center;
+    margin-top: 5%;
+    margin-bottom: 5%;
+ 
 }
 
+/*Experiment       */
+
+table{
+    font-family: arial, sans-serif;
+    /* border-collapse: collapse; */
+    width: 100%;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 5px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
