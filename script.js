@@ -90,7 +90,7 @@ selectButton.addEventListener("click", function(){
     });
 
 
-
+    //trall is a tr
 
     var tableRowColor = getComputedStyle(trAll).backgroundColor;
 
