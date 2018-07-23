@@ -1,6 +1,4 @@
 
-
-
 /* Future functionality 
 
 -Check if the inputs are empty
@@ -13,13 +11,7 @@
 
 */
 
-
 var selectButton = document.querySelector("button");
-
-
-//var selelectCreateListBtn = document.getElementById("createListName");   This var is a test for the moment 18 june 2018
-
-
 
 selectButton.addEventListener("click", function(){
 
@@ -91,21 +83,30 @@ selectButton.addEventListener("click", function(){
     trAll.appendChild(tdRemoveButton);
     trAll.appendChild(checkbox);
 
+    
 
-    createButton.addEventListener("click", function(){                           // EXPERIMENT
+    createButton.addEventListener("click", function(){                           
         trAll.parentNode.removeChild(trAll);
     });
 
-    checkbox.addEventListener("click", function(){                              //if the checkbox is clicked a line goes through the item name, price, item quantity.
+
+
+
+    var tableRowColor = getComputedStyle(trAll).backgroundColor;
+
+    console.log(tableRowColor);
+
+    checkbox.addEventListener("click", function(){                              
         if (checkbox.checked == true){
-            trAll.style.backgroundColor = "red";
+            if (tableRowColor == "rgb(221, 221, 221)" || tableRowColor == "rgba(0, 0, 0, 0)")
+                    trAll.style.backgroundColor = "red";
         }else{
-            trAll.style.backgroundColor = "green";
+            trAll.style.backgroundColor = tableRowColor;
         }
     });
 
 
-
+ 
 
 
     /*
