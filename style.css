@@ -1,29 +1,73 @@
 .whole-list{
     border: black solid 1.2px;
-    border-top-left-radius: 15px;
-    border-top-right-radius: 15px;
-   
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
 }
 
 .container{
     position: relative;
-    width: 450px;
+    width: 500px;
     height: 400px;
     margin: auto;
+    text-align: center;
 }
 
 .input-div{
-    text-align: center;
     margin-top: 5%;
     margin-bottom: 5%;
  
 }
 
+.input-div label{
+    text-align: left;
+}
+
+input[type=text]{
+    width: 50%;
+    padding: 5px;
+    margin: 8px 0;
+    margin-left: 5px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    box-sizing: border-box;
+}
+
+
+
+
+
+
+
+
+/*--------------------------------------------------------------------------------------------------*/
+/* Buttons */
+
+
+.submit-button{
+        margin-top: 10px;
+        padding: 5px;
+        width: 50%;
+        background-color: rgb(47, 115, 216);
+        color: white;
+        border-radius: 6px;
+        font-weight: bold;
+        border: none;
+    
+}
+
+.submit-button:hover{
+    background-color: rgb(21, 98, 212);
+
+}
+
+
+
+
 /*Experiment       */
 
 table{
     font-family: arial, sans-serif;
-    /* border-collapse: collapse; */ 
+    border-collapse: collapse;
     width: 100%;
 }
 
