@@ -32,6 +32,7 @@ var data1;
 var data2;
 var data3;
 var data4;
+var data5;
 
  
 function getData(){
@@ -41,11 +42,12 @@ function getData(){
         data2 = JSON.parse(localStorage.getItem("tableData"))[i].secondTd;
         data3 = JSON.parse(localStorage.getItem("tableData"))[i].thirdTd;
         data4 = JSON.parse(localStorage.getItem("tableData"))[i].fourthTd;
+        data5 = JSON.parse(localStorage.getItem("tableData"))[i].fifthTd;
         constructData(); 
-    
     }
       
 }
+
 
 
 function constructData(){
@@ -113,13 +115,51 @@ function constructData(){
      
     });
 
+
+
+   
+
+
     var tableRowColor2 = getComputedStyle(createtableRow).backgroundColor;
+
+    if ( data5 == true){
+        createtableRow.style.backgroundColor = "red";
+        checkbox2.checked = true;
+    }else{
+        createtableRow.style.backgroundColor = tableRowColor2;
+    }
+ 
+
 
     checkbox2.addEventListener("click", function(){
         if (checkbox2.checked == true){
             createtableRow.style.backgroundColor = "red";
+            var checkbox2TdSiblingId = tdCheckBox2.parentNode.childNodes[0].textContent;
+        
+        
+            for(var g = 0; g < tableData.length; g++){                                                                                                            
+            
+                if (checkbox2TdSiblingId == tableData[g].id){                                               //It basically iterates to see if the checkboxtdsiblingid is the same as the id in the tableData.id
+                    tableData[g].fifthTd = true;                                                            //if the tableData[g].fifthtd is equal to true;
+                    localStorage.setItem("tableData", JSON.stringify(tableData));                           //It saves the tableData[g].fifthtd is equal to true to the localStorage.
+                    
+                }
+            }            
+
+           
         }else{
+            var checkbox2TdSiblingId = tdCheckBox2.parentNode.childNodes[0].textContent;
+       
             createtableRow.style.backgroundColor = tableRowColor2;
+            for(var g = 0; g < tableData.length; g++){
+            
+                if (checkbox2TdSiblingId == tableData[g].id){                                                //It basically iterates to see if the checkboxtdsiblingid is the same as the id in the tableData.id
+                    tableData[g].fifthTd = false;                                                            //if the tableData[g].fifthtd is equal to false;
+                    localStorage.setItem("tableData", JSON.stringify(tableData));                            //It saves the tableData[g].fifthtd is equal to true to the localStorage.
+                    
+                }
+            } 
+            
         }
     })
     
@@ -164,7 +204,7 @@ function constructData(){
      tableRow.fourthTd= shortDate;
      tableRow.fifthTd = false;
     
-
+     tableData.push(tableRow);
      
    
     //console.log(typeof(createTextBtn));
@@ -200,10 +240,13 @@ function constructData(){
     
    
     if (itemNameInput === ""){
+        tableData.pop();
         alert("Insert a name, please");
     }else if(priceInput == ""){
+        tableData.pop();
         alert("Insert a price, please...")
     }else if (quantityInput == ""){
+        tableData.pop();
         alert("Insert quantity of items, please...")
     }else{
         selectTable.appendChild(trAll);
@@ -296,7 +339,7 @@ function constructData(){
     
      
     
-    tableData.push(tableRow);
+    
     storeData(tableData); 
 
  
@@ -315,3 +358,12 @@ function createElement(nombre){                                                 
     return newTd;
 }
 
+/* function CreateAnyElement(elementName, textNodeMsg){                                    // Testing this code 
+	
+    let element = document.createElement(elementName);
+    let textNode = document.createTextNode(textNodeMsg);
+    element.appendChild(textNode);
+    
+    return element
+  } */
+  
